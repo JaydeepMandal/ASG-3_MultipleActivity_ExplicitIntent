@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class FirstActivity extends AppCompatActivity {
 
     Button sendButton;
     EditText sendText;
+    TextView disp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,7 @@ public class FirstActivity extends AppCompatActivity {
 
         sendButton = (Button) findViewById(R.id.sendButton);
         sendText = (EditText) findViewById(R.id.L1_editText);
+        disp = (TextView) findViewById(R.id.reply);
 
     }
 
@@ -32,8 +36,20 @@ public class FirstActivity extends AppCompatActivity {
         bundle.putString("MESSAGE",String.valueOf(sendText.getText()));
 
         intent.putExtras(bundle);
-        startActivity(intent);
+        startActivityForResult(intent,2);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==2){
+            if(resultCode==RESULT_OK){
+                Bundle bundle = data.getExtras();
+                String msg = bundle.getString("REPLY");
+                disp.setText(msg);
+            }
+        }
     }
 
     @Override
