@@ -14,6 +14,24 @@ public class FirstActivity extends AppCompatActivity {
     EditText sendText;
     TextView disp,subHeading;
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("msgDisp",String.valueOf(disp.getText()));
+        outState.putString("msgHeading",String.valueOf(subHeading.getText()));
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        if(savedInstanceState!=null){
+            String str1 = savedInstanceState.getString("msgDisp");
+            String str2 = savedInstanceState.getString("msgHeading");
+            disp.setText(str1);
+            subHeading.setText(str2);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
