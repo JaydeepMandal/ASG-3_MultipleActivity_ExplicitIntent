@@ -12,7 +12,7 @@ public class FirstActivity extends AppCompatActivity {
 
     Button sendButton;
     EditText sendText;
-    TextView disp;
+    TextView disp,subHeading;
 
 
     @Override
@@ -25,6 +25,7 @@ public class FirstActivity extends AppCompatActivity {
         sendButton = (Button) findViewById(R.id.sendButton);
         sendText = (EditText) findViewById(R.id.L1_editText);
         disp = (TextView) findViewById(R.id.reply);
+        subHeading = (TextView) findViewById(R.id.heading);
 
     }
 
@@ -48,6 +49,7 @@ public class FirstActivity extends AppCompatActivity {
                 Bundle bundle = data.getExtras();
                 String msg = bundle.getString("REPLY");
                 disp.setText(msg);
+                subHeading.setText("Reply Recieved :");
             }
         }
     }
