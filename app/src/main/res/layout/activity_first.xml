@@ -72,11 +72,10 @@
 
                 <EditText
                     android:id="@+id/L1_editText"
-                    android:layout_width="281dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="142dp"
                     android:ems="10"
